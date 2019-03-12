@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-2">
+    <% if current_user.favoriting?(micropost) %>
+      <%= form_for(current_user.favorites.find_by(micropost_id: micropost.id), html: { method: :delete }) do |f| %>
+        <%= hidden_field_tag :favorite_posts, micropost.id %>
+        <%= f.submit 'お気に入り解除', class: 'btn btn-danger btn-block' %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.favorites.build) do |f| %>
+        <%= hidden_field_tag :favorite_posts, micropost.id %>
+        <%= f.submit 'お気に入り', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    <% end %>
+    
+  </div>
+  
+</div>
+
+
+
