@@ -17,8 +17,9 @@
       <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers<span class="badge"><%= @count_followers %></span><% end %></li>
       
     </ul>
+    
     <%= render 'microposts/microposts', microposts: @microposts %>
-    <div><p><%= link_to "お気に入り一覧へ", likes_user_path %></p></div>
     
   </div>
+  <p><%= link_to "お気に入り一覧へ", likes_user_path %></p>
 </div>
